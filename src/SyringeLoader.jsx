@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { useProgress } from '@react-three/drei'
 
 // Minimum time the syringe is visible, so a cached load still gets a nice fill animation.
-const MIN_SHOW_MS = 900
+const MIN_SHOW_MS = 2200
 // ms between "fill complete" and the loader fading out.
-const HOLD_AFTER_FULL_MS = 250
+const HOLD_AFTER_FULL_MS = 900
 // ms to fade out.
 const FADE_MS = 600
 // ms grace period before assuming no loaders will register.
