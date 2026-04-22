@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import PuppetScene from './PuppetScene'
 import SyringeLoader from './SyringeLoader'
 import SyringeIcon from './SyringeIcon'
@@ -11,6 +11,9 @@ const FILL_MS = 700
 const HOLD_MS = 120
 const DRAIN_MS = 700
 
+// Meshes whose toggle fires a sound effect (grow on, shrink on).
+const SFX_KEYS = new Set(['BorstGroot', 'Kont'])
+
 export default function App() {
   const [lippen, setLippen] = useState(false)
   const [borst, setBorst] = useState(false)
@@ -18,6 +21,23 @@ export default function App() {
 
   const [water, setWater] = useState({ active: false, height: 0 })
   const busy = useRef(false)
+
+  const growSfx = useRef(null)
+  const shrinkSfx = useRef(null)
+
+  useEffect(() => {
+    growSfx.current = new Audio('/sfx/growInflates.mp3')
+    shrinkSfx.current = new Audio('/sfx/shrinkPop.mp3')
+    growSfx.current.preload = 'auto'
+    shrinkSfx.current.preload = 'auto'
+  }, [])
+
+  function playSfx(willGrow) {
+    const audio = willGrow ? growSfx.current : shrinkSfx.current
+    if (!audio) return
+    audio.currentTime = 0
+    audio.play().catch(() => {})
+  }
 
   const toggles = {
     LippenGroot: lippen,
@@ -33,8 +53,11 @@ export default function App() {
 
   function triggerTransition(key) {
     const setter = setters[key]
+    const willBe = !toggles[key]
+    const withSfx = SFX_KEYS.has(key)
 
     if (!TRANSITION_ENABLED) {
+      if (withSfx) playSfx(willBe)
       setter((v) => !v)
       return
     }
@@ -57,6 +80,7 @@ export default function App() {
         h = 1
         if (!flipped) {
           flipped = true
+          if (withSfx) playSfx(willBe)
           setter((v) => !v)
         }
       } else if (t < total) {
