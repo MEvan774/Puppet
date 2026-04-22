@@ -24,12 +24,39 @@ export default function App() {
 
   const growSfx = useRef(null)
   const shrinkSfx = useRef(null)
+  const stepsSfx = useRef(null)
 
   useEffect(() => {
     growSfx.current = new Audio('/sfx/growInflates.mp3')
     shrinkSfx.current = new Audio('/sfx/shrinkPop.mp3')
     growSfx.current.preload = 'auto'
     shrinkSfx.current.preload = 'auto'
+
+    const steps = new Audio('/sfx/voetstappen.mp3')
+    steps.loop = true
+    steps.volume = 0.5
+    steps.preload = 'auto'
+    stepsSfx.current = steps
+
+    // Browsers block autoplay until the user interacts; try now, then fall
+    // back to the first gesture.
+    const start = () => {
+      steps.play().catch(() => {})
+    }
+    start()
+    const onGesture = () => {
+      start()
+      window.removeEventListener('pointerdown', onGesture)
+      window.removeEventListener('keydown', onGesture)
+    }
+    window.addEventListener('pointerdown', onGesture)
+    window.addEventListener('keydown', onGesture)
+
+    return () => {
+      steps.pause()
+      window.removeEventListener('pointerdown', onGesture)
+      window.removeEventListener('keydown', onGesture)
+    }
   }, [])
 
   function playSfx(willGrow) {
@@ -101,6 +128,13 @@ export default function App() {
     <main id="center">
       <div className="stage">
         <div className="canvas-wrap">
+          <img
+            className="city-background"
+            src="/city-background.svg"
+            alt=""
+            aria-hidden="true"
+            draggable="false"
+          />
           <PuppetScene toggles={toggles} water={water} />
         </div>
 

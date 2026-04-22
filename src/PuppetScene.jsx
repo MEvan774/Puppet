@@ -9,7 +9,7 @@ import WaterTransition from './WaterTransition'
 const MODEL_POSITION = [0, 0, 0]
 
 // How high the model sits in the viewport (0 = bottom, 0.5 = center, 1 = top)
-const MODEL_VERTICAL_ANCHOR = 0.25
+const MODEL_VERTICAL_ANCHOR = 0.15
 
 // Orthographic camera zoom — increase to zoom in, decrease to zoom out.
 const CAMERA_ZOOM = 130
