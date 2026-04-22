@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import { Environment } from '@react-three/drei'
 import PuppetModel from './PuppetModel'
+import WaterTransition from './WaterTransition'
 
 // Tweak these world-unit offsets to fine-tune the model position.
 // x: left(-) / right(+)   y: down(-) / up(+)   z: back(-) / forward(+)
@@ -20,7 +21,7 @@ function PositionedModel({ toggles }) {
   return <PuppetModel position={[x, anchorY + y, z]} toggles={toggles} />
 }
 
-export default function PuppetScene({ toggles }) {
+export default function PuppetScene({ toggles, water = { active: false, height: 0 } }) {
   return (
     <Canvas
       orthographic
@@ -34,6 +35,7 @@ export default function PuppetScene({ toggles }) {
         <Environment preset="city" />
         <PositionedModel toggles={toggles} />
       </Suspense>
+      <WaterTransition active={water.active} height={water.height} />
     </Canvas>
   )
 }

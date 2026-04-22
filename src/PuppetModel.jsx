@@ -19,7 +19,8 @@ const LAYER_ORDER = [
 const TOGGLEABLE = ['LippenGroot', 'BorstGroot', 'Kont']
 
 // Bigger = snappier transition. Time constant in ~seconds.
-const GROW_SPEED = 6
+// Kept high so the scale change completes while the water overlay holds at full.
+const GROW_SPEED = 40
 
 export default function PuppetModel({ toggles = {}, ...props }) {
   const group = useRef()

@@ -23,9 +23,12 @@
 
 .puppet-btn {
   position: absolute;
-  font-size: 15px;
-  font-family: var(--sans);
-  padding: 10px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   border-radius: 999px;
   color: var(--accent);
   background: var(--bg);
@@ -34,10 +37,14 @@
   transition:
     transform 0.2s,
     box-shadow 0.2s,
-    background 0.2s;
+    background 0.2s,
+    color 0.2s;
   box-shadow: var(--shadow);
-  white-space: nowrap;
   z-index: 2;
+}
+
+.puppet-btn svg {
+  display: block;
 }
 
 .puppet-btn:hover {
@@ -79,6 +86,52 @@
 
 .btn-left:hover {
   transform: translateY(calc(-50% - 1px));
+}
+
+.syringe-loader {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 5;
+  border-radius: 16px;
+  background: #000000;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.syringe-loader.is-out {
+  opacity: 0;
+}
+
+.syringe-inner {
+  display: grid;
+  gap: 10px;
+  place-items: center;
+}
+
+.syringe-svg {
+  width: 32%;
+  min-width: 120px;
+  max-width: 190px;
+}
+
+.syringe-label {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.12em;
+  text-transform: none;
+}
+
+.syringe-pct {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.08em;
 }
 
 @media (max-width: 1024px) {
