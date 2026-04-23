@@ -38,8 +38,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 54px;
+  height: 54px;
   padding: 0;
   border-radius: 999px;
   color: var(--accent);
@@ -57,6 +57,25 @@
 
 .puppet-btn svg {
   display: block;
+}
+
+/* Icon drawn via a CSS mask so the SVG's shape is colored with the button's
+   currentColor — preserves the purple/white active-inactive contrast that the
+   old syringe icon had. Each button sets --icon-url inline. */
+.btn-icon {
+  display: block;
+  width: 43px;
+  height: 43px;
+  background-color: currentColor;
+  -webkit-mask-image: var(--icon-url);
+          mask-image: var(--icon-url);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  pointer-events: none;
 }
 
 .puppet-btn:hover {

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import PuppetScene from './PuppetScene'
 import SyringeLoader from './SyringeLoader'
-import SyringeIcon from './SyringeIcon'
 import './App.css'
 
 // Flip to false to skip the water/rain transition — buttons will toggle immediately.
@@ -147,7 +146,10 @@ export default function App() {
           title="Lippen"
           onClick={() => triggerTransition('LippenGroot')}
         >
-          <SyringeIcon />
+          <span
+            className="btn-icon"
+            style={{ '--icon-url': "url('/LipsIcon.svg')" }}
+          />
         </button>
         <button
           className={`puppet-btn btn-middle-right ${borst ? 'is-on' : ''}`}
@@ -156,7 +158,10 @@ export default function App() {
           title="Borst"
           onClick={() => triggerTransition('BorstGroot')}
         >
-          <SyringeIcon />
+          <span
+            className="btn-icon"
+            style={{ '--icon-url': "url('/BreastIcon.svg')" }}
+          />
         </button>
         <button
           className={`puppet-btn btn-left ${kont ? 'is-on' : ''}`}
@@ -165,7 +170,10 @@ export default function App() {
           title="Kont"
           onClick={() => triggerTransition('Kont')}
         >
-          <SyringeIcon />
+          <span
+            className="btn-icon"
+            style={{ '--icon-url': "url('/ButtIcon.svg')" }}
+          />
         </button>
       </div>
     </main>
