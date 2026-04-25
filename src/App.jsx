@@ -129,7 +129,7 @@ export default function App() {
         <div className="canvas-wrap">
           <img
             className="city-background"
-            src="/city-background.svg"
+            src={kont ? '/beach-bg.svg' : lippen ? '/sakura-bg.svg' : '/city-background.svg'}
             alt=""
             aria-hidden="true"
             draggable="false"

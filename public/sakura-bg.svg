@@ -1,0 +1,252 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="s1-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b5d4f0"/>
+      <stop offset="40%" stop-color="#ffd4e5"/>
+      <stop offset="80%" stop-color="#ffe8d4"/>
+      <stop offset="100%" stop-color="#fff5e8"/>
+    </linearGradient>
+    <linearGradient id="s1-mtn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a9fc4"/>
+      <stop offset="100%" stop-color="#b5a5c8"/>
+    </linearGradient>
+    <linearGradient id="s1-mtnC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6a7fb0"/>
+      <stop offset="100%" stop-color="#9a85b0"/>
+    </linearGradient>
+    <linearGradient id="s1-river" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a5c5e8"/>
+      <stop offset="100%" stop-color="#7ba0c8"/>
+    </linearGradient>
+    <linearGradient id="s1-path" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4a574"/>
+      <stop offset="100%" stop-color="#a87848"/>
+    </linearGradient>
+    <linearGradient id="s1-grass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#90c878"/>
+      <stop offset="100%" stop-color="#6ba058"/>
+    </linearGradient>
+
+    <symbol id="s1-mtnTile" viewBox="0 0 1200 180" width="1200" height="180">
+      <path d="M 0 180 L 0 120 L 80 80 L 160 100 L 240 60 L 320 90 L 400 50 L 480 85 L 560 70 L 640 95 L 720 55 L 800 85 L 880 75 L 960 100 L 1040 65 L 1120 90 L 1200 75 L 1200 180 Z" fill="url(#s1-mtn)" opacity="0.7"/>
+      <g fill="#fff5e8" opacity="0.85">
+        <path d="M 80 80 L 95 90 L 75 90 Z"/>
+        <path d="M 240 60 L 258 75 L 225 75 Z"/>
+        <path d="M 400 50 L 418 68 L 385 68 Z"/>
+        <path d="M 720 55 L 738 72 L 705 72 Z"/>
+        <path d="M 1040 65 L 1057 80 L 1025 80 Z"/>
+      </g>
+    </symbol>
+
+    <symbol id="s1-mtnCTile" viewBox="0 0 1200 140" width="1200" height="140">
+      <path d="M 0 140 L 0 90 L 100 50 L 200 80 L 320 40 L 450 75 L 580 55 L 720 85 L 860 50 L 1000 80 L 1120 60 L 1200 75 L 1200 140 Z" fill="url(#s1-mtnC)"/>
+    </symbol>
+
+    <symbol id="s1-riverTile" viewBox="0 0 400 60" width="400" height="60">
+      <rect x="0" y="0" width="400" height="60" fill="url(#s1-river)"/>
+      <g stroke="#c8e0f4" stroke-width="1" opacity="0.7" fill="none">
+        <path d="M0 12 Q 25 10, 50 12 T 100 12 T 150 12 T 200 12 T 250 12 T 300 12 T 350 12 T 400 12"/>
+        <path d="M0 25 Q 30 23, 60 25 T 120 25 T 180 25 T 240 25 T 300 25 T 360 25 T 400 25"/>
+        <path d="M0 40 Q 20 38, 40 40 T 80 40 T 120 40 T 160 40 T 200 40 T 240 40 T 280 40 T 320 40 T 360 40 T 400 40"/>
+      </g>
+      <g fill="#ffb8d8" opacity="0.6">
+        <ellipse cx="70" cy="22" rx="3" ry="1.5"/>
+        <ellipse cx="140" cy="35" rx="2.5" ry="1.2"/>
+        <ellipse cx="220" cy="18" rx="3" ry="1.5"/>
+        <ellipse cx="290" cy="42" rx="2.5" ry="1.2"/>
+        <ellipse cx="350" cy="28" rx="3" ry="1.5"/>
+      </g>
+    </symbol>
+
+    <symbol id="s1-grassTile" viewBox="0 0 300 40" width="300" height="40">
+      <rect x="0" y="0" width="300" height="40" fill="url(#s1-grass)"/>
+      <g fill="#ff9fc8"><circle cx="45" cy="18" r="1.5"/><circle cx="130" cy="22" r="1.5"/><circle cx="230" cy="20" r="1.5"/></g>
+      <g fill="#fff5a0"><circle cx="85" cy="25" r="1.5"/><circle cx="185" cy="28" r="1.5"/><circle cx="280" cy="22" r="1.5"/></g>
+    </symbol>
+
+    <symbol id="s1-pathTile" viewBox="0 0 300 80" width="300" height="80">
+      <rect x="0" y="0" width="300" height="80" fill="url(#s1-path)"/>
+      <g stroke="#6a4820" stroke-width="1.5" opacity="0.6" fill="none">
+        <line x1="0" y1="25" x2="300" y2="25"/>
+        <line x1="0" y1="55" x2="300" y2="55"/>
+        <line x1="50" y1="0" x2="50" y2="25"/>
+        <line x1="130" y1="0" x2="130" y2="25"/>
+        <line x1="210" y1="0" x2="210" y2="25"/>
+        <line x1="30" y1="25" x2="30" y2="55"/>
+        <line x1="110" y1="25" x2="110" y2="55"/>
+        <line x1="190" y1="25" x2="190" y2="55"/>
+        <line x1="270" y1="25" x2="270" y2="55"/>
+        <line x1="70" y1="55" x2="70" y2="80"/>
+        <line x1="180" y1="55" x2="180" y2="80"/>
+      </g>
+      <g fill="#ffb8d8" opacity="0.8">
+        <ellipse cx="80" cy="15" rx="2.5" ry="1.2"/>
+        <ellipse cx="175" cy="40" rx="2.5" ry="1.2"/>
+        <ellipse cx="245" cy="65" rx="2.5" ry="1.2"/>
+      </g>
+    </symbol>
+
+    <symbol id="s1-pagoda" viewBox="0 0 120 180" width="120" height="180">
+      <rect x="45" y="150" width="30" height="30" fill="#8a3a3a"/>
+      <path d="M 25 150 L 95 150 L 85 140 L 35 140 Z" fill="#3a2020"/>
+      <rect x="48" y="115" width="24" height="25" fill="#a84545"/>
+      <path d="M 30 115 L 90 115 L 82 105 L 38 105 Z" fill="#3a2020"/>
+      <rect x="50" y="80" width="20" height="25" fill="#a84545"/>
+      <path d="M 32 80 L 88 80 L 80 72 L 40 72 Z" fill="#3a2020"/>
+      <rect x="53" y="50" width="14" height="22" fill="#a84545"/>
+      <path d="M 36 50 L 84 50 L 76 42 L 44 42 Z" fill="#3a2020"/>
+      <rect x="57" y="20" width="6" height="22" fill="#3a2020"/>
+      <circle cx="60" cy="18" r="4" fill="#d4a030"/>
+      <circle cx="60" cy="10" r="3" fill="#d4a030"/>
+      <rect x="58" y="5" width="4" height="8" fill="#3a2020"/>
+    </symbol>
+
+    <symbol id="s1-torii" viewBox="0 0 200 260" width="200" height="260">
+      <rect x="25" y="60" width="22" height="200" fill="#c82828"/>
+      <rect x="153" y="60" width="22" height="200" fill="#c82828"/>
+      <rect x="10" y="95" width="180" height="18" fill="#c82828"/>
+      <path d="M 0 55 Q 100 35, 200 55 L 200 75 Q 100 55, 0 75 Z" fill="#3a1a1a"/>
+      <rect x="5" y="75" width="190" height="15" fill="#c82828"/>
+      <rect x="85" y="45" width="30" height="20" fill="#3a1a1a"/>
+    </symbol>
+
+    <symbol id="s1-sakura" viewBox="0 0 260 320" width="260" height="320">
+      <path d="M 130 320 Q 125 260, 120 200 Q 115 150, 125 100" fill="none" stroke="#4a2818" stroke-width="16" stroke-linecap="round"/>
+      <g stroke="#4a2818" stroke-width="6" stroke-linecap="round" fill="none">
+        <path d="M 125 140 Q 100 130, 70 115"/>
+        <path d="M 122 120 Q 145 105, 175 90"/>
+        <path d="M 125 100 Q 110 80, 85 65"/>
+        <path d="M 125 100 Q 140 75, 170 55"/>
+        <path d="M 125 100 Q 130 70, 125 40"/>
+      </g>
+      <g fill="#ffb8d8">
+        <circle cx="130" cy="40" r="50"/>
+        <circle cx="70" cy="70" r="42"/>
+        <circle cx="190" cy="60" r="45"/>
+        <circle cx="105" cy="95" r="38"/>
+        <circle cx="165" cy="95" r="40"/>
+        <circle cx="50" cy="110" r="32"/>
+        <circle cx="210" cy="100" r="35"/>
+        <circle cx="135" cy="130" r="35"/>
+        <circle cx="85" cy="140" r="28"/>
+        <circle cx="175" cy="135" r="30"/>
+      </g>
+      <g fill="#ffd4e5" opacity="0.8">
+        <circle cx="120" cy="30" r="20"/>
+        <circle cx="60" cy="60" r="16"/>
+        <circle cx="180" cy="50" r="18"/>
+        <circle cx="155" cy="85" r="15"/>
+        <circle cx="200" cy="95" r="13"/>
+      </g>
+    </symbol>
+
+    <symbol id="s1-lantern" viewBox="0 0 70 150" width="70" height="150">
+      <rect x="10" y="140" width="50" height="10" fill="#7a7068" rx="2"/>
+      <rect x="20" y="125" width="30" height="15" fill="#8a8078"/>
+      <rect x="28" y="85" width="14" height="40" fill="#8a8078"/>
+      <rect x="18" y="75" width="34" height="12" fill="#7a7068"/>
+      <rect x="22" y="55" width="26" height="22" fill="#8a8078"/>
+      <rect x="30" y="60" width="10" height="12" fill="#3a2818"/>
+      <circle cx="35" cy="66" r="8" fill="#ffd770" opacity="0.5"/>
+      <path d="M 10 55 Q 35 40, 60 55 L 55 60 Q 35 48, 15 60 Z" fill="#6a6058"/>
+      <circle cx="35" cy="40" r="4" fill="#7a7068"/>
+    </symbol>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="500" fill="url(#s1-sky)"/>
+  <g transform="translate(300, 120)">
+    <circle cx="0" cy="0" r="60" fill="#fff5e8" opacity="0.4"/>
+    <circle cx="0" cy="0" r="40" fill="#fff8ea" opacity="0.8"/>
+  </g>
+
+  <g>
+    <use href="#s1-mtnTile" x="0" y="200"/>
+    <use href="#s1-mtnTile" x="1200" y="200"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-1200 0" dur="200s" repeatCount="indefinite"/>
+  </g>
+  <g>
+    <use href="#s1-mtnCTile" x="0" y="260"/>
+    <use href="#s1-mtnCTile" x="1200" y="260"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-1200 0" dur="120s" repeatCount="indefinite"/>
+  </g>
+  <g>
+    <g>
+      <use href="#s1-pagoda" x="200" y="240"/>
+      <use href="#s1-pagoda" x="1600" y="240"/>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-1800 0" dur="90s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g>
+    <use href="#s1-riverTile" x="0" y="410"/>
+    <use href="#s1-riverTile" x="400" y="410"/>
+    <use href="#s1-riverTile" x="800" y="410"/>
+    <use href="#s1-riverTile" x="1200" y="410"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-400 0" dur="35s" repeatCount="indefinite"/>
+  </g>
+  <g>
+    <use href="#s1-grassTile" x="0" y="470"/>
+    <use href="#s1-grassTile" x="300" y="470"/>
+    <use href="#s1-grassTile" x="600" y="470"/>
+    <use href="#s1-grassTile" x="900" y="470"/>
+    <use href="#s1-grassTile" x="1200" y="470"/>
+    <use href="#s1-grassTile" x="1500" y="470"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-300 0" dur="16s" repeatCount="indefinite"/>
+  </g>
+  <g>
+    <g>
+      <use href="#s1-sakura" x="-80" y="180"/>
+      <use href="#s1-lantern" x="250" y="380"/>
+      <use href="#s1-torii" x="550" y="260"/>
+      <use href="#s1-sakura" x="850" y="200"/>
+      <use href="#s1-lantern" x="1280" y="380"/>
+      <use href="#s1-sakura" x="1450" y="180"/>
+      <use href="#s1-torii" x="1900" y="260"/>
+      <use href="#s1-sakura" x="2200" y="200"/>
+      <use href="#s1-sakura" x="2320" y="180"/>
+      <use href="#s1-lantern" x="2650" y="380"/>
+      <use href="#s1-torii" x="2950" y="260"/>
+      <use href="#s1-sakura" x="3250" y="200"/>
+      <use href="#s1-lantern" x="3680" y="380"/>
+      <use href="#s1-sakura" x="3850" y="180"/>
+      <use href="#s1-torii" x="4300" y="260"/>
+      <use href="#s1-sakura" x="4600" y="200"/>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-2400 0" dur="60s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g>
+    <use href="#s1-pathTile" x="0" y="510"/>
+    <use href="#s1-pathTile" x="300" y="510"/>
+    <use href="#s1-pathTile" x="600" y="510"/>
+    <use href="#s1-pathTile" x="900" y="510"/>
+    <use href="#s1-pathTile" x="1200" y="510"/>
+    <use href="#s1-pathTile" x="1500" y="510"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-300 0" dur="8s" repeatCount="indefinite"/>
+  </g>
+
+  <g>
+    <ellipse cx="100" cy="-20" rx="4" ry="2" fill="#ffb8d8" opacity="0.9">
+      <animate attributeName="cy" values="-20;620" dur="18s" repeatCount="indefinite"/>
+      <animate attributeName="cx" values="100;50;100" dur="18s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="300" cy="-40" rx="3.5" ry="1.8" fill="#ffd4e5" opacity="0.85">
+      <animate attributeName="cy" values="-40;640" dur="22s" repeatCount="indefinite"/>
+      <animate attributeName="cx" values="300;260;300" dur="22s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="500" cy="-30" rx="4" ry="2" fill="#ff9fc8" opacity="0.9">
+      <animate attributeName="cy" values="-30;630" dur="20s" repeatCount="indefinite"/>
+      <animate attributeName="cx" values="500;460;500" dur="20s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="700" cy="-50" rx="3" ry="1.5" fill="#ffb8d8" opacity="0.8">
+      <animate attributeName="cy" values="-50;620" dur="24s" repeatCount="indefinite"/>
+      <animate attributeName="cx" values="700;650;700" dur="24s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="900" cy="-25" rx="4" ry="2" fill="#ffd4e5" opacity="0.9">
+      <animate attributeName="cy" values="-25;625" dur="19s" repeatCount="indefinite"/>
+      <animate attributeName="cx" values="900;860;900" dur="19s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="1100" cy="-45" rx="3.5" ry="1.8" fill="#ff9fc8" opacity="0.85">
+      <animate attributeName="cy" values="-45;635" dur="21s" repeatCount="indefinite"/>
+      <animate attributeName="cx" values="1100;1050;1100" dur="21s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+</svg>

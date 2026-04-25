@@ -1,0 +1,256 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="s2-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d1b4e"/>
+      <stop offset="25%" stop-color="#6b3a6e"/>
+      <stop offset="50%" stop-color="#d4598a"/>
+      <stop offset="75%" stop-color="#f4a261"/>
+      <stop offset="100%" stop-color="#ffd28a"/>
+    </linearGradient>
+    <radialGradient id="s2-sun">
+      <stop offset="0%" stop-color="#fff5c8"/>
+      <stop offset="60%" stop-color="#ffd770"/>
+      <stop offset="100%" stop-color="#ff9340"/>
+    </radialGradient>
+    <radialGradient id="s2-sunGlow">
+      <stop offset="0%" stop-color="#ffd770" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffd770" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="s2-ocean" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a5fb8"/>
+      <stop offset="50%" stop-color="#3a4a9c"/>
+      <stop offset="100%" stop-color="#2a3578"/>
+    </linearGradient>
+    <linearGradient id="s2-sand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f4c285"/>
+      <stop offset="50%" stop-color="#e8a860"/>
+      <stop offset="100%" stop-color="#c88845"/>
+    </linearGradient>
+    <linearGradient id="s2-wetSand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d49560"/>
+      <stop offset="100%" stop-color="#b87840"/>
+    </linearGradient>
+
+    <symbol id="s2-cloudTile" viewBox="0 0 1200 180" width="1200" height="180">
+      <g fill="#ffb8a0" opacity="0.75">
+        <ellipse cx="150" cy="60" rx="80" ry="14"/>
+        <ellipse cx="200" cy="55" rx="60" ry="11"/>
+        <ellipse cx="450" cy="100" rx="100" ry="16"/>
+        <ellipse cx="510" cy="92" rx="70" ry="13"/>
+        <ellipse cx="750" cy="70" rx="90" ry="15"/>
+        <ellipse cx="800" cy="63" rx="65" ry="12"/>
+        <ellipse cx="1000" cy="110" rx="85" ry="14"/>
+        <ellipse cx="1050" cy="103" rx="60" ry="11"/>
+      </g>
+      <g fill="#fff0d4" opacity="0.5">
+        <ellipse cx="180" cy="54" rx="50" ry="8"/>
+        <ellipse cx="480" cy="94" rx="60" ry="9"/>
+        <ellipse cx="780" cy="64" rx="55" ry="8"/>
+        <ellipse cx="1020" cy="104" rx="50" ry="8"/>
+      </g>
+    </symbol>
+
+    <symbol id="s2-islandTile" viewBox="0 0 1200 80" width="1200" height="80">
+      <g fill="#3d2a5c" opacity="0.85">
+        <path d="M 0 80 L 0 55 Q 80 40, 160 48 Q 240 52, 320 45 Q 400 38, 480 50 L 480 80 Z"/>
+        <path d="M 600 80 L 600 60 Q 680 45, 760 52 Q 840 56, 920 48 Q 1000 42, 1080 54 L 1080 80 Z"/>
+      </g>
+      <g fill="#2a1a4a" opacity="0.9">
+        <path d="M 300 80 L 300 58 Q 380 48, 460 53 Q 540 56, 620 50 L 620 80 Z"/>
+        <path d="M 850 80 L 850 62 Q 930 52, 1010 58 Q 1090 62, 1170 56 L 1170 80 Z"/>
+      </g>
+    </symbol>
+
+    <symbol id="s2-oceanTile" viewBox="0 0 400 80" width="400" height="80">
+      <rect x="0" y="0" width="400" height="80" fill="url(#s2-ocean)"/>
+      <g stroke="#ffd770" stroke-width="1.5" opacity="0.35" fill="none">
+        <path d="M0 15 Q 30 13, 60 15 T 120 15 T 180 15 T 240 15 T 300 15 T 360 15 T 400 15"/>
+        <path d="M0 28 Q 25 26, 50 28 T 100 28 T 150 28 T 200 28 T 250 28 T 300 28 T 350 28 T 400 28"/>
+      </g>
+      <g stroke="#7a8fd8" stroke-width="1.2" opacity="0.5" fill="none">
+        <path d="M0 42 Q 30 40, 60 42 T 120 42 T 180 42 T 240 42 T 300 42 T 360 42 T 400 42"/>
+        <path d="M0 55 Q 25 53, 50 55 T 100 55 T 150 55 T 200 55 T 250 55 T 300 55 T 350 55 T 400 55"/>
+        <path d="M0 68 Q 35 66, 70 68 T 140 68 T 210 68 T 280 68 T 350 68 T 400 68"/>
+      </g>
+      <g fill="#fff0d4" opacity="0.6">
+        <circle cx="80" cy="45" r="1"/>
+        <circle cx="160" cy="58" r="1"/>
+        <circle cx="230" cy="40" r="1"/>
+        <circle cx="310" cy="62" r="1"/>
+        <circle cx="370" cy="50" r="1"/>
+      </g>
+    </symbol>
+
+    <symbol id="s2-foamTile" viewBox="0 0 400 30" width="400" height="30">
+      <path d="M 0 25 Q 30 10, 60 18 Q 90 8, 120 20 Q 150 5, 180 15 Q 210 12, 240 20 Q 270 6, 300 18 Q 330 10, 360 22 Q 380 14, 400 20 L 400 30 L 0 30 Z" fill="#fff0d4" opacity="0.95"/>
+      <path d="M 0 28 Q 50 20, 100 26 Q 150 18, 200 26 Q 250 20, 300 27 Q 350 22, 400 28 L 400 30 L 0 30 Z" fill="#ffffff" opacity="0.8"/>
+    </symbol>
+
+    <symbol id="s2-wetSandTile" viewBox="0 0 400 50" width="400" height="50">
+      <rect x="0" y="0" width="400" height="50" fill="url(#s2-wetSand)"/>
+      <g fill="#ffb87a" opacity="0.3">
+        <ellipse cx="80" cy="15" rx="40" ry="3"/>
+        <ellipse cx="230" cy="25" rx="50" ry="4"/>
+        <ellipse cx="340" cy="18" rx="35" ry="3"/>
+      </g>
+    </symbol>
+
+    <symbol id="s2-sandTile" viewBox="0 0 300 100" width="300" height="100">
+      <rect x="0" y="0" width="300" height="100" fill="url(#s2-sand)"/>
+      <g fill="#8b5a2b" opacity="0.3">
+        <circle cx="25" cy="15" r="0.8"/>
+        <circle cx="60" cy="30" r="0.6"/>
+        <circle cx="95" cy="20" r="0.7"/>
+        <circle cx="130" cy="45" r="0.8"/>
+        <circle cx="170" cy="25" r="0.6"/>
+        <circle cx="210" cy="55" r="0.7"/>
+        <circle cx="245" cy="35" r="0.8"/>
+        <circle cx="280" cy="60" r="0.6"/>
+        <circle cx="40" cy="70" r="0.7"/>
+        <circle cx="85" cy="85" r="0.8"/>
+        <circle cx="140" cy="75" r="0.6"/>
+        <circle cx="195" cy="90" r="0.7"/>
+        <circle cx="260" cy="80" r="0.8"/>
+      </g>
+      <g fill="#fff0d4" opacity="0.7">
+        <ellipse cx="70" cy="50" rx="4" ry="2.5"/>
+        <ellipse cx="185" cy="65" rx="3" ry="2"/>
+        <ellipse cx="255" cy="20" rx="3.5" ry="2"/>
+      </g>
+      <g fill="#ff9fb5" opacity="0.8">
+        <path d="M 115 40 Q 120 35, 125 40 Q 125 45, 120 47 Q 115 45, 115 40 Z"/>
+        <path d="M 220 78 Q 225 73, 230 78 Q 230 83, 225 85 Q 220 83, 220 78 Z"/>
+      </g>
+    </symbol>
+
+    <symbol id="s2-palm" viewBox="0 0 240 360" width="240" height="360">
+      <path d="M 115 360 Q 118 280, 115 200 Q 110 120, 120 50" fill="none" stroke="#5a3820" stroke-width="14" stroke-linecap="round"/>
+      <g fill="#2d5a3d">
+        <path d="M 120 50 Q 60 40, 20 60 Q 50 45, 100 55 Q 70 60, 40 80 Q 70 65, 110 60 Z"/>
+        <path d="M 120 50 Q 80 10, 30 15 Q 70 20, 100 40 Q 80 25, 60 10 Q 90 30, 115 50 Z"/>
+        <path d="M 120 50 Q 125 0, 140 -10 Q 130 10, 130 40 Q 135 15, 150 5 Q 140 25, 130 50 Z"/>
+        <path d="M 120 50 Q 170 10, 220 20 Q 180 25, 150 45 Q 180 30, 210 20 Q 170 40, 140 55 Z"/>
+        <path d="M 120 50 Q 180 45, 225 65 Q 190 55, 150 60 Q 180 65, 215 85 Q 180 70, 135 60 Z"/>
+        <path d="M 120 50 Q 180 75, 210 110 Q 180 85, 145 70 Q 175 90, 195 120 Q 165 95, 130 65 Z"/>
+        <path d="M 120 50 Q 60 75, 30 110 Q 60 85, 95 70 Q 65 90, 45 120 Q 75 95, 110 65 Z"/>
+      </g>
+      <g fill="#4a2d15">
+        <circle cx="118" cy="58" r="5"/>
+        <circle cx="128" cy="60" r="5"/>
+        <circle cx="112" cy="65" r="5"/>
+      </g>
+    </symbol>
+
+    <symbol id="s2-umbrella" viewBox="0 0 180 220" width="180" height="220">
+      <rect x="87" y="80" width="6" height="140" fill="#3a2a1a"/>
+      <path d="M 90 20 Q 20 30, 10 80 L 170 80 Q 160 30, 90 20 Z" fill="#d4598a"/>
+      <path d="M 90 20 Q 50 25, 30 55 L 90 55 Z" fill="#d4598a"/>
+      <path d="M 90 20 Q 130 25, 150 55 L 90 55 Z" fill="#d4598a"/>
+      <circle cx="90" cy="20" r="5" fill="#3a2a1a"/>
+    </symbol>
+
+    <symbol id="s2-rock" viewBox="0 0 120 60" width="120" height="60">
+      <path d="M 10 60 Q 5 40, 20 30 Q 35 20, 55 25 Q 75 20, 90 30 Q 110 40, 115 60 Z" fill="#5a4530"/>
+      <path d="M 35 30 Q 50 25, 70 28" fill="none" stroke="#8a7050" stroke-width="2" opacity="0.5"/>
+    </symbol>
+
+    <symbol id="s2-starfish" viewBox="0 0 50 50" width="50" height="50">
+      <path d="M 25 5 L 31 18 L 45 20 L 34 30 L 38 45 L 25 37 L 12 45 L 16 30 L 5 20 L 19 18 Z" fill="#ff8866"/>
+      <g fill="#cc5533" opacity="0.6">
+        <circle cx="25" cy="20" r="1.2"/>
+        <circle cx="22" cy="28" r="1"/>
+        <circle cx="28" cy="28" r="1"/>
+        <circle cx="25" cy="32" r="1"/>
+      </g>
+    </symbol>
+
+    <symbol id="s2-seagull" viewBox="0 0 40 16" width="40" height="16">
+      <path d="M 2 10 Q 10 2, 20 10 Q 30 2, 38 10" fill="none" stroke="#2a1a4a" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="500" fill="url(#s2-sky)"/>
+
+  <circle cx="750" cy="340" r="180" fill="url(#s2-sunGlow)"/>
+  <circle cx="750" cy="340" r="70" fill="url(#s2-sun)"/>
+  <ellipse cx="750" cy="410" rx="55" ry="8" fill="#ffd770" opacity="0.5"/>
+
+  <g>
+    <use href="#s2-seagull" x="100" y="120"/>
+    <use href="#s2-seagull" x="320" y="90"/>
+    <use href="#s2-seagull" x="540" y="140"/>
+    <use href="#s2-seagull" x="900" y="110"/>
+    <use href="#s2-seagull" x="1080" y="160"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-1200 0" dur="80s" repeatCount="indefinite"/>
+  </g>
+
+  <g>
+    <use href="#s2-cloudTile" x="0" y="50"/>
+    <use href="#s2-cloudTile" x="1200" y="50"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-1200 0" dur="240s" repeatCount="indefinite"/>
+  </g>
+
+  <g>
+    <use href="#s2-islandTile" x="0" y="340"/>
+    <use href="#s2-islandTile" x="1200" y="340"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-1200 0" dur="140s" repeatCount="indefinite"/>
+  </g>
+
+  <g>
+    <use href="#s2-oceanTile" x="0" y="420"/>
+    <use href="#s2-oceanTile" x="400" y="420"/>
+    <use href="#s2-oceanTile" x="800" y="420"/>
+    <use href="#s2-oceanTile" x="1200" y="420"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-400 0" dur="40s" repeatCount="indefinite"/>
+  </g>
+
+  <g>
+    <use href="#s2-foamTile" x="0" y="490"/>
+    <use href="#s2-foamTile" x="400" y="490"/>
+    <use href="#s2-foamTile" x="800" y="490"/>
+    <use href="#s2-foamTile" x="1200" y="490"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-400 0" dur="16s" repeatCount="indefinite"/>
+  </g>
+
+  <g>
+    <use href="#s2-wetSandTile" x="0" y="500"/>
+    <use href="#s2-wetSandTile" x="400" y="500"/>
+    <use href="#s2-wetSandTile" x="800" y="500"/>
+    <use href="#s2-wetSandTile" x="1200" y="500"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-400 0" dur="12s" repeatCount="indefinite"/>
+  </g>
+
+  <g>
+    <g>
+      <use href="#s2-palm" x="-50" y="180"/>
+      <use href="#s2-umbrella" x="350" y="340"/>
+      <use href="#s2-rock" x="600" y="500"/>
+      <use href="#s2-palm" x="820" y="180"/>
+      <use href="#s2-starfish" x="1150" y="540"/>
+      <use href="#s2-umbrella" x="1400" y="340"/>
+      <use href="#s2-palm" x="1700" y="180"/>
+      <use href="#s2-rock" x="2000" y="510"/>
+      <use href="#s2-starfish" x="2200" y="535"/>
+      <use href="#s2-palm" x="2350" y="180"/>
+      <use href="#s2-umbrella" x="2750" y="340"/>
+      <use href="#s2-rock" x="3000" y="500"/>
+      <use href="#s2-palm" x="3220" y="180"/>
+      <use href="#s2-starfish" x="3550" y="540"/>
+      <use href="#s2-umbrella" x="3800" y="340"/>
+      <use href="#s2-palm" x="4100" y="180"/>
+      <use href="#s2-rock" x="4400" y="510"/>
+      <use href="#s2-starfish" x="4600" y="535"/>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-2400 0" dur="56s" repeatCount="indefinite"/>
+    </g>
+  </g>
+
+  <g>
+    <use href="#s2-sandTile" x="0" y="520"/>
+    <use href="#s2-sandTile" x="300" y="520"/>
+    <use href="#s2-sandTile" x="600" y="520"/>
+    <use href="#s2-sandTile" x="900" y="520"/>
+    <use href="#s2-sandTile" x="1200" y="520"/>
+    <use href="#s2-sandTile" x="1500" y="520"/>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-300 0" dur="8s" repeatCount="indefinite"/>
+  </g>
+</svg>
