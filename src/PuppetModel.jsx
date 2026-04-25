@@ -1,6 +1,18 @@
 import { useEffect, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import { useGLTF, useAnimations, useTexture } from '@react-three/drei'
+
+const BLINK_TEXTURES = {
+  Closed: '/textures/POPExportTorsoClosed.png',
+  HalfOpen: '/textures/POPExportTorsoHalfOpen.png',
+  Default: '/textures/POPExportTorsoDefault.png',
+}
+
+// Blink frame durations (ms) and pause between blinks (ms range).
+const FRAME_CLOSED_MS = 60
+const FRAME_HALF_MS = 70
+const BLINK_GAP_MIN_MS = 2800
+const BLINK_GAP_MAX_MS = 5200
 
 const LAYER_ORDER = [
   'Haar',
@@ -26,9 +38,11 @@ export default function PuppetModel({ toggles = {}, ...props }) {
   const group = useRef()
   const { scene, animations } = useGLTF('/PopRig.glb')
   const { actions, names } = useAnimations(animations, group)
+  const blinkMaps = useTexture(BLINK_TEXTURES)
 
   const toggleRefs = useRef({})
   const baseScales = useRef({})
+  const hoofdMesh = useRef(null)
 
   const matchName = (name, list) =>
     list.find((n) => name === n || name.startsWith(n))
@@ -56,8 +70,65 @@ export default function PuppetModel({ toggles = {}, ...props }) {
         baseScales.current[toggleBase] = obj.scale.clone()
         obj.scale.set(0.0001, 0.0001, 0.0001)
       }
+
+      if (layerBase === 'Hoofd' && !hoofdMesh.current) {
+        hoofdMesh.current = obj
+        const original = obj.material?.map
+        for (const key of Object.keys(blinkMaps)) {
+          const tex = blinkMaps[key]
+          if (original) {
+            tex.flipY = original.flipY
+            tex.colorSpace = original.colorSpace
+            tex.wrapS = original.wrapS
+            tex.wrapT = original.wrapT
+          }
+          tex.needsUpdate = true
+        }
+      }
     })
-  }, [scene])
+  }, [scene, blinkMaps])
+
+  useEffect(() => {
+    const mesh = hoofdMesh.current
+    if (!mesh || !blinkMaps.Default) return
+
+    let cancelled = false
+    let timer
+
+    const setMap = (tex) => {
+      const m = mesh.material
+      if (!m) return
+      m.map = tex
+      m.needsUpdate = true
+    }
+
+    const wait = (ms) =>
+      new Promise((resolve) => {
+        timer = setTimeout(resolve, ms)
+      })
+
+    async function loop() {
+      while (!cancelled) {
+        setMap(blinkMaps.Closed)
+        await wait(FRAME_CLOSED_MS)
+        if (cancelled) return
+        setMap(blinkMaps.HalfOpen)
+        await wait(FRAME_HALF_MS)
+        if (cancelled) return
+        setMap(blinkMaps.Default)
+        const gap =
+          BLINK_GAP_MIN_MS + Math.random() * (BLINK_GAP_MAX_MS - BLINK_GAP_MIN_MS)
+        await wait(gap)
+      }
+    }
+
+    loop()
+
+    return () => {
+      cancelled = true
+      clearTimeout(timer)
+    }
+  }, [blinkMaps])
 
   useFrame((_, delta) => {
     const t = 1 - Math.exp(-GROW_SPEED * delta)
