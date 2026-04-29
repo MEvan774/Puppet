@@ -227,6 +227,7 @@
   pointer-events: none;
   user-select: none;
   z-index: 2;
+  animation: needleWobble 5.55s ease-in-out infinite;
   /* Default rest: offset to upper-left, like the syringe is held aimed at the icon */
   transform: translate(-78%, -78%) rotate(-18deg);
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
