@@ -75,9 +75,10 @@ export default function SyringeLoader() {
     }
   }, [target])
 
-  // Stop the loading sound as soon as we leave the loading phase.
+  // Stop the loading sound only after the pool has fully filled the screen
+  // (i.e., once we enter the draining phase).
   useEffect(() => {
-    if (phase !== 'loading' && loadingSfx.current) {
+    if ((phase === 'draining' || phase === 'done') && loadingSfx.current) {
       loadingSfx.current.pause()
     }
   }, [phase])
