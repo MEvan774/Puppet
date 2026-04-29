@@ -30,7 +30,13 @@ export default function App() {
   const hoverSfx = useRef(null)
   const clickSfx = useRef(null)
   const stepsSfx = useRef(null)
+  const beachWalkSfx = useRef(null)
+  const currentSceneRef = useRef(0)
   const [flashing, setFlashing] = useState(null)
+
+  useEffect(() => {
+    currentSceneRef.current = currentScene
+  }, [currentScene])
 
   useEffect(() => {
     growSfx.current = new Audio('/sfx/growInflates.mp3')
@@ -50,10 +56,25 @@ export default function App() {
     steps.preload = 'auto'
     stepsSfx.current = steps
 
-    const start = () => steps.play().catch(() => {})
-    start()
+    const beach = new Audio('/sfx/beachwalking.mp3')
+    beach.loop = true
+    beach.volume = 0.5
+    beach.preload = 'auto'
+    beachWalkSfx.current = beach
+
+    // Pick the right walking track for the active scene (subject to autoplay policy).
+    const startCurrent = () => {
+      if (currentSceneRef.current === 1) {
+        steps.pause()
+        beach.play().catch(() => {})
+      } else {
+        beach.pause()
+        steps.play().catch(() => {})
+      }
+    }
+    startCurrent()
     const onGesture = () => {
-      start()
+      startCurrent()
       window.removeEventListener('pointerdown', onGesture)
       window.removeEventListener('keydown', onGesture)
     }
@@ -62,10 +83,26 @@ export default function App() {
 
     return () => {
       steps.pause()
+      beach.pause()
       window.removeEventListener('pointerdown', onGesture)
       window.removeEventListener('keydown', onGesture)
     }
   }, [])
+
+  // Swap walking SFX on scene change: beach => beachwalking, otherwise => voetstappen.
+  useEffect(() => {
+    const steps = stepsSfx.current
+    const beach = beachWalkSfx.current
+    if (!steps || !beach) return
+    if (currentScene === 1) {
+      steps.pause()
+      beach.currentTime = 0
+      beach.play().catch(() => {})
+    } else {
+      beach.pause()
+      steps.play().catch(() => {})
+    }
+  }, [currentScene])
 
   function playSfx(willGrow) {
     const audio = willGrow ? growSfx.current : shrinkSfx.current

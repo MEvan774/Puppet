@@ -21,6 +21,29 @@ export default function SyringeLoader() {
   const poolPathRef = useRef(null)
   const poolHighlightRef = useRef(null)
   const stageRef = useRef(null)
+  const loadingSfx = useRef(null)
+
+  // Loading sound: starts immediately, stops when the loader leaves the loading phase.
+  useEffect(() => {
+    const a = new Audio('/sfx/loadingGeluid.mp3')
+    a.loop = true
+    a.volume = 0.6
+    a.preload = 'auto'
+    loadingSfx.current = a
+    a.play().catch(() => {})
+    const onGesture = () => {
+      a.play().catch(() => {})
+      window.removeEventListener('pointerdown', onGesture)
+      window.removeEventListener('keydown', onGesture)
+    }
+    window.addEventListener('pointerdown', onGesture)
+    window.addEventListener('keydown', onGesture)
+    return () => {
+      a.pause()
+      window.removeEventListener('pointerdown', onGesture)
+      window.removeEventListener('keydown', onGesture)
+    }
+  }, [])
 
   useEffect(() => {
     if (active) setEverActive(true)
@@ -51,6 +74,13 @@ export default function SyringeLoader() {
       if (raf) cancelAnimationFrame(raf)
     }
   }, [target])
+
+  // Stop the loading sound as soon as we leave the loading phase.
+  useEffect(() => {
+    if (phase !== 'loading' && loadingSfx.current) {
+      loadingSfx.current.pause()
+    }
+  }, [phase])
 
   // When fill completes, run the pour-into-pool transition.
   useEffect(() => {

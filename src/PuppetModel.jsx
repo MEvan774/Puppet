@@ -8,6 +8,8 @@ const BLINK_TEXTURES = {
   Default: '/textures/POPExportTorsoDefault.png',
 }
 
+const KONT_TEXTURE_URL = '/textures/POPExportGroteKont.png'
+
 // Blink frame durations (ms) and pause between blinks (ms range).
 const FRAME_CLOSED_MS = 60
 const FRAME_HALF_MS = 70
@@ -39,6 +41,7 @@ export default function PuppetModel({ toggles = {}, ...props }) {
   const { scene, animations } = useGLTF('/PopRig.glb')
   const { actions, names } = useAnimations(animations, group)
   const blinkMaps = useTexture(BLINK_TEXTURES)
+  const kontTexture = useTexture(KONT_TEXTURE_URL)
 
   const toggleRefs = useRef({})
   const baseScales = useRef({})
@@ -69,6 +72,20 @@ export default function PuppetModel({ toggles = {}, ...props }) {
         toggleRefs.current[toggleBase] = obj
         baseScales.current[toggleBase] = obj.scale.clone()
         obj.scale.set(0.0001, 0.0001, 0.0001)
+
+        // Swap the Kont mesh's texture to the dedicated Kont map.
+        if (toggleBase === 'Kont' && obj.material) {
+          const original = obj.material.map
+          if (original) {
+            kontTexture.flipY = original.flipY
+            kontTexture.colorSpace = original.colorSpace
+            kontTexture.wrapS = original.wrapS
+            kontTexture.wrapT = original.wrapT
+          }
+          kontTexture.needsUpdate = true
+          obj.material.map = kontTexture
+          obj.material.needsUpdate = true
+        }
       }
 
       if (layerBase === 'Hoofd' && !hoofdMesh.current) {
@@ -86,7 +103,7 @@ export default function PuppetModel({ toggles = {}, ...props }) {
         }
       }
     })
-  }, [scene, blinkMaps])
+  }, [scene, blinkMaps, kontTexture])
 
   useEffect(() => {
     const mesh = hoofdMesh.current
