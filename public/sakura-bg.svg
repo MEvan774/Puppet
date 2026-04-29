@@ -153,7 +153,7 @@
     </symbol>
   </defs>
 
-  <rect x="0" y="0" width="1200" height="500" fill="url(#s1-sky)"/>
+  <rect x="0" y="0" width="1200" height="600" fill="url(#s1-sky)"/>
   <g transform="translate(300, 120)">
     <circle cx="0" cy="0" r="60" fill="#fff5e8" opacity="0.4"/>
     <circle cx="0" cy="0" r="40" fill="#fff8ea" opacity="0.8"/>
