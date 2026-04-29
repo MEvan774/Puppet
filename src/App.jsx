@@ -6,7 +6,6 @@ import './App.css'
 // Map each toggle key to its scene index (0=sakura, 1=beach, 2=night).
 const SCENE_FOR_KEY = { LippenGroot: 0, BorstGroot: 1, Kont: 2 }
 const SCENE_SRCS = ['/sakura-bg.svg', '/beach-bg.svg', '/city-background.svg']
-const SCENE_LABELS = ['Sakura park', 'Strand', 'Nacht']
 
 // Meshes whose toggle fires a sound effect (grow on, shrink on).
 const SFX_KEYS = new Set(['BorstGroot', 'Kont'])
@@ -200,9 +199,6 @@ export default function App() {
       <div ref={duskRef} className="transition-overlay dusk-fade" />
       <div ref={starsRef} className="transition-overlay" />
 
-      <div className="scene-label" aria-hidden="true">
-        {SCENE_LABELS[currentScene]}
-      </div>
 
       <div className="scene-btn-panel">
         <button
@@ -213,10 +209,8 @@ export default function App() {
           onMouseEnter={() => playUiSfx(hoverSfx)}
           onClick={() => triggerButton('LippenGroot')}
         >
-          <span
-            className="btn-icon"
-            style={{ '--icon-url': "url('/LipsIcon.svg')" }}
-          />
+          <img className="btn-icon" src="/LipsIcon.png" alt="" draggable="false" />
+          <img className="btn-needle" src="/LipsNeedleIcon.png" alt="" draggable="false" />
         </button>
         <button
           className={`scene-btn scene-btn-2 ${currentScene === 1 ? 'active' : ''} ${flashing === 'BorstGroot' ? 'is-flashing' : ''}`}
@@ -226,10 +220,8 @@ export default function App() {
           onMouseEnter={() => playUiSfx(hoverSfx)}
           onClick={() => triggerButton('BorstGroot')}
         >
-          <span
-            className="btn-icon"
-            style={{ '--icon-url': "url('/BreastIcon.svg')" }}
-          />
+          <img className="btn-icon" src="/BreastIcon.png" alt="" draggable="false" />
+          <img className="btn-needle" src="/BreastNeedleIcon.png" alt="" draggable="false" />
         </button>
         <button
           className={`scene-btn scene-btn-3 ${currentScene === 2 ? 'active' : ''} ${flashing === 'Kont' ? 'is-flashing' : ''}`}
@@ -239,10 +231,8 @@ export default function App() {
           onMouseEnter={() => playUiSfx(hoverSfx)}
           onClick={() => triggerButton('Kont')}
         >
-          <span
-            className="btn-icon"
-            style={{ '--icon-url': "url('/ButtIcon.svg')" }}
-          />
+          <img className="btn-icon" src="/ButtIcon.png" alt="" draggable="false" />
+          <img className="btn-needle" src="/ButtNeedleIcon.png" alt="" draggable="false" />
         </button>
       </div>
     </div>
