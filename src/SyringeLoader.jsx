@@ -22,6 +22,7 @@ export default function SyringeLoader() {
   const poolHighlightRef = useRef(null)
   const stageRef = useRef(null)
   const loadingSfx = useRef(null)
+  const stopLoadingSfx = useRef(null)
 
   // Loading sound: starts immediately, stops when the loader leaves the loading phase.
   useEffect(() => {
@@ -30,19 +31,29 @@ export default function SyringeLoader() {
     a.volume = 0.6
     a.preload = 'auto'
     loadingSfx.current = a
-    a.play().catch(() => {})
+    let stopped = false
+    let playPromise = a.play().catch(() => {})
     const onGesture = () => {
-      a.play().catch(() => {})
+      if (stopped) return
+      playPromise = a.play().catch(() => {})
       window.removeEventListener('pointerdown', onGesture)
       window.removeEventListener('keydown', onGesture)
     }
     window.addEventListener('pointerdown', onGesture)
     window.addEventListener('keydown', onGesture)
-    return () => {
-      a.pause()
+    const stop = () => {
+      stopped = true
       window.removeEventListener('pointerdown', onGesture)
       window.removeEventListener('keydown', onGesture)
+      Promise.resolve(playPromise).finally(() => {
+        a.pause()
+        a.currentTime = 0
+        a.loop = false
+        a.src = ''
+      })
     }
+    stopLoadingSfx.current = stop
+    return stop
   }, [])
 
   useEffect(() => {
@@ -78,8 +89,8 @@ export default function SyringeLoader() {
   // Stop the loading sound only after the pool has fully filled the screen
   // (i.e., once we enter the draining phase).
   useEffect(() => {
-    if ((phase === 'draining' || phase === 'done') && loadingSfx.current) {
-      loadingSfx.current.pause()
+    if ((phase === 'draining' || phase === 'done') && stopLoadingSfx.current) {
+      stopLoadingSfx.current()
     }
   }, [phase])
 

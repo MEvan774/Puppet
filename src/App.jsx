@@ -8,7 +8,7 @@ const SCENE_FOR_KEY = { LippenGroot: 0, BorstGroot: 1, Kont: 2 }
 const SCENE_SRCS = ['/sakura-bg.svg', '/beach-bg.svg', '/city-background.svg']
 
 // Meshes whose toggle fires a sound effect (grow on, shrink on).
-const SFX_KEYS = new Set(['BorstGroot', 'Kont'])
+const SFX_KEYS = new Set(['LippenGroot', 'BorstGroot', 'Kont'])
 
 const TRANSITION_MS = 2500
 const SWAP_MID_MS = 1100
@@ -105,10 +105,11 @@ export default function App() {
   }, [currentScene])
 
   function playSfx(willGrow) {
-    const audio = willGrow ? growSfx.current : shrinkSfx.current
-    if (!audio) return
-    audio.currentTime = 0
-    audio.play().catch(() => {})
+    const src = willGrow ? growSfx.current : shrinkSfx.current
+    if (!src) return
+    const a = src.cloneNode()
+    a.volume = src.volume
+    a.play().catch(() => {})
   }
 
   function playUiSfx(audioRef) {
